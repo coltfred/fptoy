@@ -1,4 +1,4 @@
 fptoy
 =====
 
-Toy programs in function progamming for learning.
+Toy programs in functional progamming for learning.
