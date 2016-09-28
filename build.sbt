@@ -4,15 +4,25 @@ version := "0.1"
 
 organization := "com.coltfred"
 
-scalaVersion := "2.10.0"
+scalaVersion := "2.11.8"
  
-libraryDependencies += "org.scalaz" % "scalaz-core_2.10" % "7.0.0-M8"
+libraryDependencies += "org.typelevel" %% "cats" % "0.7.2"
+libraryDependencies += "com.ironcorelabs" %% "cats-scalatest" % "1.4.0" % "test"
+
+    scalacOptions ++= Seq(
+      "-deprecation",
+      "-encoding", "UTF-8", // yes, this is 2 args
+      "-feature",
+      "-unchecked",
+      "-Xfatal-warnings",
+      "-Xlint",
+      "-Yno-adapted-args",
+      "-Ywarn-numeric-widen",
+      "-Ywarn-value-discard",
+      "-Xfuture",
+      "-language:higherKinds"
+  ) 
  
-scalacOptions += "-feature"
- 
-initialCommands in console := "import scalaz._, Scalaz._"
+initialCommands in console := "import cats._, cats.data._ cats.implicits._"
 
-parallelExecution in Test := false
-
-scalariformSettings
-
+com.typesafe.sbt.SbtScalariform.scalariformSettings
